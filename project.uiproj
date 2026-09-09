@@ -1,0 +1,6 @@
+{
+  "Name": "AMP22_RequisitosCalidadPedidoProveedor",
+  "ProjectType": "Process",
+  "Description": "Descargar los reportes de requisitos de calidad del pedido a proveedor y cargar los PDFs al Share Point",
+  "MainFile": "Main.xaml"
+}

@@ -1,0 +1,13 @@
+﻿{
+  "Name": "1.0.0",
+  "Type": "AppVersion",
+  "Id": "jLIjR7Qkwkysq_aztimTPA",
+  "Reference": "os_mfXIz8k-QYL3roH-7sQ/jLIjR7Qkwkysq_aztimTPA",
+  "ParentRef": "os_mfXIz8k-QYL3roH-7sQ/O0c3-V-fP0KvqRX4u1yC5w",
+  "Created": "2026-09-11T17:43:30.1373021Z",
+  "Updated": "2026-09-11T17:43:30.1373021Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.12.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

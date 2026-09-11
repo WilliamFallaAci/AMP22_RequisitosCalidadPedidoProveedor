@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Automate SAP to input date range.",
+  "Type": "App",
+  "Id": "O0c3-V-fP0KvqRX4u1yC5w",
+  "Reference": "os_mfXIz8k-QYL3roH-7sQ/O0c3-V-fP0KvqRX4u1yC5w",
+  "Created": "2026-09-11T17:43:30.0163334Z",
+  "Updated": "2026-09-11T17:43:30.0163334Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.12.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

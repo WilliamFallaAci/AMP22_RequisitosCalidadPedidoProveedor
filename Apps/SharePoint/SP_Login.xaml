@@ -1,4 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SP_Login" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="SP_Login_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SP_Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>SP_Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -100,20 +107,20 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SP_Login" sap:VirtualizedContainerService.HintSize="1281,1934" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SP_Login" sap:VirtualizedContainerService.HintSize="1163,1986" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - start" sap:VirtualizedContainerService.HintSize="488,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicia login en Share Point&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="Chrome - share point" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="488,1570" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.Always]" ScopeGuid="0665efa8-12fb-4689-bd3e-f4c1faf2dc7b" Timeout="[CDbl(Config(&quot;SP_TimeoutMedium&quot;))]" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="Chrome - share point" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="488,1622" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.Always]" ScopeGuid="0665efa8-12fb-4689-bd3e-f4c1faf2dc7b" Timeout="[CDbl(in_Config(&quot;SP_TimeoutMedium&quot;))]" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do - share point login" sap:VirtualizedContainerService.HintSize="486,1367" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do - share point login" sap:VirtualizedContainerService.HintSize="486,1418" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="User" />
               <Variable x:TypeArguments="ss:SecureString" Name="Password" />
@@ -123,8 +130,8 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[Config(&quot;SharePoint_Creds&quot;).ToString.Trim]" CacheStrategy="None" DisplayName="Get Credential - SAP creds" FolderPath="[Config(&quot;OrchestratorQueueFolder&quot;).ToString.Trim]" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[Password]" Username="[User]" />
-            <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope - login share point" sap:VirtualizedContainerService.HintSize="452,1131" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:00.5000000">
+            <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;SharePoint_Creds&quot;).ToString.Trim]" CacheStrategy="None" DisplayName="Get Credential - SAP creds" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString.Trim]" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[Password]" Username="[User]" />
+            <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope - login share point" sap:VirtualizedContainerService.HintSize="452,1182" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:00.5000000">
               <ui:RetryScope.ActivityBody>
                 <ActivityAction>
                   <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="450,737" sap2010:WorkflowViewState.IdRef="Sequence_3">
@@ -133,17 +140,17 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into - nombre usuario" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,246" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="HardwareEvents" ScopeIdentifier="0665efa8-12fb-4689-bd3e-f4c1faf2dc7b" Text="[User]" Timeout="[CDbl(Config(&quot;SP_TimeoutMedium&quot;))]" Version="V5">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into - nombre usuario" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,246" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="HardwareEvents" ScopeIdentifier="0665efa8-12fb-4689-bd3e-f4c1faf2dc7b" Text="[User]" Timeout="[CDbl(in_Config(&quot;SP_TimeoutMedium&quot;))]" Version="V5">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable CVScreenId="957c3b42-f783-4a36-ad39-8a6a781c8ec9" ContentHash="XBx9qgsvgEyWtkcX6uSefw" DesignTimeRectangle="943, 179, 165, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;ctrl name='Iniciar sesión' role='dialog' /&gt;&lt;ctrl name='Nombre de usuario' role='editable text' /&gt;" Guid="fd3a962b-8362-4db7-b470-05a593ede9b2" InformativeScreenshot="aa41dda9f3adacd9fe5b4ced0a2ee14c.png" Reference="vPy7nYopc0-jm1pCYXfcew/f6SeGod9z0K26LiHFQzf-g" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin*' title='documentationlibrary.ampo.com/cal/Documentos_RT_MAP/Forms/AllIte*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Complete" />
                       </uix:NTypeInto.Target>
                     </uix:NTypeInto>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into - contraseña" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,246" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" ScopeIdentifier="0665efa8-12fb-4689-bd3e-f4c1faf2dc7b" SecureText="[Password]" Timeout="[CDbl(Config(&quot;SP_TimeoutMedium&quot;))]" Version="V5">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into - contraseña" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,246" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" ScopeIdentifier="0665efa8-12fb-4689-bd3e-f4c1faf2dc7b" SecureText="[Password]" Timeout="[CDbl(in_Config(&quot;SP_TimeoutMedium&quot;))]" Version="V5">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable BrowserURL="documentationlibrary.ampo.com/cal/Documentos_RT_MAP/Forms/AllItems.aspx" CVScreenId="f93a6ac5-00c8-4d8e-9860-1c442182c224" ContentHash="WLsFEIgCgkaC80Sua7pz0w" DesignTimeRectangle="943, 227, 165, 36" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;ctrl name='Iniciar sesión' role='dialog' /&gt;&lt;ctrl name='Contraseña' role='editable text' /&gt;" Guid="e3f22cf6-daec-401d-899d-97d303224ba3" InformativeScreenshot="f2f06af220c38a9bf7b8c36834c06421.png" Reference="vPy7nYopc0-jm1pCYXfcew/7jXJ4cax5EqT_kOD9-x8hw" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin*' title='documentationlibrary.ampo.com/cal/Documentos_RT_MAP/Forms/AllIte*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="[UiPath.UIAutomationNext.Enums.NWaitForReady.Complete]" />
                       </uix:NTypeInto.Target>
                     </uix:NTypeInto>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click - iniciar sesión button" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,185" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0665efa8-12fb-4689-bd3e-f4c1faf2dc7b" Timeout="[CDbl(Config(&quot;SP_TimeoutMedium&quot;))]" Version="V5">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click - iniciar sesión button" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,185" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0665efa8-12fb-4689-bd3e-f4c1faf2dc7b" Timeout="[CDbl(in_Config(&quot;SP_TimeoutMedium&quot;))]" Version="V5">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="documentationlibrary.ampo.com/cal/Documentos_RT_MAP/Forms/AllItems.aspx" CVScreenId="2ba515c5-756a-4393-a3f7-8d2355f83546" ContentHash="496TJJN6Y0GnBK-hOsvLsQ" DesignTimeRectangle="882, 287, 109, 38" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;ctrl name='Iniciar sesión' role='dialog' /&gt;&lt;ctrl name='Iniciar sesión' role='push button' /&gt;" Guid="c16335dc-922c-409c-8d32-f438687849e6" InformativeScreenshot="60bb2f2020e99a1e8cb8f56e027e581e.png" Reference="vPy7nYopc0-jm1pCYXfcew/ONCGWwDyQkalNwQZKyEdHg" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin*' title='documentationlibrary.ampo.com/cal/Documentos_RT_MAP/Forms/AllIte*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="[UiPath.UIAutomationNext.Enums.NWaitForReady.Complete]" />
                       </uix:NClick.Target>
@@ -153,7 +160,7 @@
               </ui:RetryScope.ActivityBody>
               <ui:RetryScope.Condition>
                 <ActivityFunc x:TypeArguments="x:Boolean">
-                  <uix:NCheckState DisplayName="Check App State -login success SP'" EnableIfExists="False" EnableIfNotExists="False" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="426,246" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="0665efa8-12fb-4689-bd3e-f4c1faf2dc7b" Timeout="[CDbl(Config(&quot;SAP_TimeoutShort&quot;))]" Version="V5">
+                  <uix:NCheckState DisplayName="Check App State -login success SP'" EnableIfExists="False" EnableIfNotExists="False" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="426,297" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="0665efa8-12fb-4689-bd3e-f4c1faf2dc7b" Timeout="[CDbl(in_Config(&quot;SAP_TimeoutShort&quot;))]" Version="V5">
                     <uix:NCheckState.IfExists>
                       <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <sap:WorkflowViewStateService.ViewState>
